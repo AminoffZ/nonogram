@@ -1,5 +1,7 @@
 import random
 
+width = 6
+height = 4
 size = 4
 
 gridDict = {"X": [], "Y": []}
@@ -7,9 +9,9 @@ numberList = {"X": [], "Y": []}
 
 def AddXList():
     xDict = []
-    for i in range(size):
+    for i in range(height):
         xList = []
-        for i in range(size):
+        for j in range(width):
             xList.append(random.choice([True, False]))
         xDict.append(xList)
         
@@ -17,12 +19,12 @@ def AddXList():
 
 def AddYList():
     yDict = []
-    count = 0
-    for xList in gridDict["X"]:
+    for i in range(width):
+        print(i)
         yList = []
         for xList in gridDict["X"]:
-            yList.append(xList[count])
-        count += 1    
+            yList.append(xList[i])
+        i += 1  
         yDict.append(yList)
     gridDict["Y"] = yDict
 
@@ -55,8 +57,8 @@ AddXList()
 AddYList()
 AddClueList()
 
-gridDict
-numberList
+print(gridDict)
+print(numberList)
 
 
 
